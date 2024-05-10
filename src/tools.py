@@ -3,6 +3,7 @@ from typing import List
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain.agents import Tool
 from langchain_experimental.utilities import PythonREPL
+from langchain_community.tools.tavily_search import TavilySearchResults
 
 def get_tools() -> List[Tool]:
     """
@@ -26,8 +27,6 @@ def get_tabily_search_tool() -> Tool:
     Returns:
         TavilySearchResults: A tool that searches the internet for a query using the Tavily API.
     """
-    from langchain_community.tools.tavily_search import TavilySearchResults
-
     internet_search = TavilySearchResults()
     internet_search.name = 'internet_search'
     internet_search.description = 'Returns a list of relevant document snippets for a textual query retrieved from the internet.'

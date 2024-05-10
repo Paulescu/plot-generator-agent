@@ -1,5 +1,6 @@
 install:
 	@echo "Installing dependencies"
+	curl -sSL https://install.python-poetry.org | python3 -
 	poetry install
 
 run-llm:

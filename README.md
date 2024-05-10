@@ -7,49 +7,40 @@
 - [Wanna get more hands-on content like this?](#)
 
 ## What is this repo about?
-In this repository you will find a Python implementation of an LLM agent.
+In this repository you will find a Python implementation of an LLM agent that can generate visualisations using public data available on the Internet.
 
-> What is an LLM agent?
+### What is an LLM agent?
+An agent is essentially a wrapper around your LLM, that provides extra functionality like
 
-In this example we will use LangChain to implement a multi-hop
+- Tool usage. The LLM is able to select and use tools, like internet search, to fetch relevant information it might need to accomplish the task.
+
+- Multi-step reasoning. The LLM can generate a plan, execute it, and adjust it based on the partial outcomes obtained.
+
+The LLM acts as a reasoning machine, that helps the agent choose the sequence of actions to take to solve the task.
+
+Let me show you how to build a ReAct (Reason and Act) agent in Python that can generate the plot we want.
 
 
-## Why agents?
+## Run the whole thing in 3 minutes
 
+1. Create Python virtual environment and install all dependencies using Python Poetry
+    ```
+    $ make install
+    ```
 
+2. Set API keys for Tavily and Cohere in an `.env` file
+    ```
+    $ cp .env.sample .env
+    ```
+    and replace placeholders with your keys.
 
-## How to run the code?
+3. Ask the agent to generate a plot example
+    ```
+    $ make run-agent
+    ```
 
 ## Wanna get more hands-on content like this?
 
+Jon 15k+ builders to the the Real-World ML Newsletter, and learn to build real-world ML products.
 
-
-```
-$ poetry run python src/main.py --input "Create a plot of the number of full time employees at the 3 tech companies with the highest market cap in the United States in 2024."
-```
-
-No plot was saved to disk. Let's adjust the prompt.
-
-```
-$ poetry run python src/main.py --input "Create a plot of the number of full time employees at the 3 tech companies with the highest market cap in the United States in 2024. Save the plot as a png file under plots/"
-```
-
-These work
-```
-$ poetry run python src/main.py --input "Create a plot of the ETH/EUR price in January 1st 2024. Save the plot as a png file under plots/"
-$ poetry run python src/main.py --input "Create a plot of the ETH/EUR price for today. Save the plot as a png file under plots/"
-```
-
-So, so
-```
-$ poetry run python src/main.py --input "Create a plot of the ETH/EUR daily price for the last 3 days. Save the plot as a png file under plots/"
-```
-
-This one does not work
-```
-$ poetry run python src/main.py --input "Create a line chart with the daily ETH/EUR price from January 1st 2024 until January 10th 2024. Save the plot as a png file under plots/"
-```
-
-The reason is `I could not find the daily ETH/EUR price from January 1st 2024 until January 10th 2024.`
-
-Let's fix this by adding a new tool.
+-> [Click to join for FREE](https://www.realworldml.net/subscribe)
